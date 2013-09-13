@@ -3,10 +3,10 @@
     
     <item
         android:id="@+id/itemRefresh"
-        android:icon="@string/refresh">
+        android:title="@string/refresh">
     </item>
     <item
         android:id="@+id/itemSettings"
-        android:icon="@string/SETTINGS">
+        android:title="@string/SETTINGS">
     </item>
 </menu>
