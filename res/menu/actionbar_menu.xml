@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <item
+        android:id="@+id/itemRefresh"
+        android:icon="@string/refresh">
+    </item>
+    <item
+        android:id="@+id/itemSettings"
+        android:icon="@string/SETTINGS">
+    </item>
+</menu>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- Layer 0 -->
+    <!-- Layer 1 -->
+    <!-- Layer 2 -->
+    <!-- Layer 3 -->
+    <!-- Layer 4 (content background) -->
+
+
+    <!-- dropshadow -->
+    <item>
+        <shape>
+            <solid android:color="#10000000" />
+
+            <padding
+                android:bottom="1dp"
+                android:left="0dp"
+                android:right="0dp"
+                android:top="0dp" />
+
+            <corners android:radius="5dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="#20000000" />
+
+            <padding
+                android:bottom="1dp"
+                android:left="0dp"
+                android:right="0dp"
+                android:top="0dp" />
+
+            <corners android:radius="5dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="#40000000" />
+
+            <padding
+                android:bottom="1dp"
+                android:left="0dp"
+                android:right="0dp"
+                android:top="0dp" />
+
+            <corners android:radius="5dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="#50000000" />
+
+            <padding
+                android:bottom="1dp"
+                android:left="0dp"
+                android:right="0dp"
+                android:top="0dp" />
+
+            <corners android:radius="5dp" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="#60000000" />
+
+            <padding
+                android:bottom="1dp"
+                android:left="0dp"
+                android:right="0dp"
+                android:top="0dp" />
+
+            <corners android:radius="5dp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle" >
+            <size android:height="100dp" />
+
+            <solid android:color="#1b5372" />
+
+            <stroke
+                android:width="0.5dp"
+                android:color="#5b97bf" >
+            </stroke>
+
+            <corners android:radius="5dp" />
+        </shape>
+    </item>
+    <item>
+        <bitmap
+            android:antialias="true"
+            android:gravity="bottom"
+            android:src="@drawable/setting_glow_bottom" >
+        </bitmap>
+    </item>
+
+</layer-list>

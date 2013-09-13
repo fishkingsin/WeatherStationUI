@@ -1,0 +1,58 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".StationActivity" >
+
+	<LinearLayout
+	    android:layout_width="320dp"
+	    android:layout_height="match_parent"
+	    android:orientation="vertical" >
+
+	    <com.terlici.dragndroplist.DragNDropListView
+	        android:id="@+id/list1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginBottom="10dp"
+	        android:layout_weight="0.8"
+	        android:divider="@android:color/transparent"
+	        android:dividerHeight="10.0sp"
+	        android:fadeScrollbars="false"
+	        android:listSelector="@drawable/station_selector"
+	        android:paddingBottom="10dp" >
+
+	    </com.terlici.dragndroplist.DragNDropListView>
+	    <com.terlici.dragndroplist.DragNDropListView
+	        android:id="@+id/list2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginBottom="10dp"
+	        android:layout_weight="0.8"
+	        android:divider="@android:color/transparent"
+	        android:dividerHeight="10.0sp"
+	        android:fadeScrollbars="false"
+	        android:listSelector="@drawable/station_selector"
+	        android:visibility="gone"
+	        android:paddingBottom="10dp" >
+
+	    </com.terlici.dragndroplist.DragNDropListView>
+
+	    <Button
+	        android:id="@+id/btn_modify_connected_station"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="bottom"
+	        android:background="@drawable/station_item_bg"
+	        android:text="@string/remove_station"
+	        android:textColor="@color/white" />
+
+	</LinearLayout>
+
+</RelativeLayout>
