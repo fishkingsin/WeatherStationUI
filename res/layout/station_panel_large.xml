@@ -22,6 +22,22 @@
                     android:gravity="bottom"
                     android:orientation="vertical" >
 
+                    <TextView
+                        android:id="@+id/home_panel_date_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:shadowColor="@color/black"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="3"
+                        android:text="MON. 5 DEC 2012"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/white"
+                        android:visibility="visible" />
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -74,23 +90,29 @@
                                     android:textColor="@color/dark_blue" />
                             </LinearLayout>
 
-                            <LinearLayout
+                            <GridLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center" >
+                                android:columnCount="4"
+                                android:rowCount="1" >
 
                                 <ImageView
                                     android:id="@+id/imageView4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="center_horizontal|center_vertical"
+                                    android:layout_column="0"
+                                    android:layout_gravity="left"
+                                    android:layout_row="0"
                                     android:src="@drawable/pressure_icon_blue" />
 
                                 <TextView
-                                    android:id="@+id/textView2"
+                                    android:id="@+id/air_pressure_tv"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_column="1"
+                                    android:layout_gravity="left"
                                     android:layout_marginLeft="10dp"
+                                    android:layout_row="0"
                                     android:text="1023"
                                     android:textAppearance="?android:attr/textAppearanceLarge"
                                     android:textColor="@color/dark_blue"
@@ -100,21 +122,25 @@
                                     android:id="@+id/unit_tv"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_column="2"
+                                    android:layout_gravity="right"
                                     android:layout_marginLeft="10dp"
+                                    android:layout_row="0"
                                     android:text="hPa"
                                     android:textAppearance="?android:attr/textAppearanceLarge"
                                     android:textColor="@color/dark_blue"
                                     android:textSize="40sp" />
 
                                 <ImageView
-                                    android:id="@+id/station_battery_l"
+                                    android:id="@+id/station_battery"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_gravity="right|center"
-                                    android:layout_marginLeft="10dp"
+                                    android:layout_column="3"
+                                    android:layout_gravity="right"
+                                    android:layout_row="0"
                                     android:src="@drawable/battery" />
+                            </GridLayout>
 
-                            </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>

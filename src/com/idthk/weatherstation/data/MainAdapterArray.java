@@ -1,6 +1,9 @@
 package com.idthk.weatherstation.data;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+
 import com.idthk.weatherstation.ui.R;
 
 import android.content.Context;
@@ -16,7 +19,6 @@ public class MainAdapterArray extends ArrayAdapter<StationData> {
 	private final Context context;
 	private ArrayList<StationData> values;
 	private ArrayList<View> views;
-
 
 	public MainAdapterArray(Context context, ArrayList<StationData> values) {
 		super(context, R.layout.history_list_item_layout, values);
@@ -38,42 +40,59 @@ public class MainAdapterArray extends ArrayAdapter<StationData> {
 		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View rowView = null;
-		if(position==0)
-		{
-			
-			rowView = inflater.inflate(R.layout.station_panel_large, parent,
-			false);
-		}
-		else
-		{
+		StationData data = values.get(position);
+		if (position == 0) {
+			if (data.name.equals("Main")) {
+
+				rowView = inflater.inflate(R.layout.station_panel_large,
+						parent, false);
+				TextView air_pressure_tv = (TextView) rowView
+						.findViewById(R.id.air_pressure_tv);
+				air_pressure_tv.setText(String.valueOf(data.pressure));
+			} else {
+				rowView = inflater.inflate(R.layout.station_panel_empty,
+						parent, false);
+			}
+
+			TextView data_tv = (TextView) rowView
+					.findViewById(R.id.home_panel_date_tv);
+			Calendar cal = Calendar.getInstance();
+
+			SimpleDateFormat sdf = new SimpleDateFormat("EEE. d MMM yyyy");
+			data_tv.setText(sdf.format(cal.getTime()));
+		} else {
 			rowView = inflater.inflate(R.layout.station_panel_small, parent,
 					false);
-			ImageView icon = (ImageView)rowView.findViewById(R.id.station_icon
-					);
-			icon.setImageResource(R.drawable.child_yellow );
+			ImageView icon = (ImageView) rowView
+					.findViewById(R.id.station_icon);
+			icon.setImageResource(R.drawable.child_yellow);
+
+			TextView humidity_tv = (TextView) rowView
+					.findViewById(R.id.humidity_tv);
+			TextView temperature_tv = (TextView) rowView
+					.findViewById(R.id.temperature_tv);
+			humidity_tv.setText(String.valueOf(data.humiditiy));
+			temperature_tv.setText(String.valueOf(data.degree));
 		}
 		views.add(rowView);
-		TextView station_name_tv = (TextView) rowView.findViewById(R.id.station_name_tv);
-		station_name_tv.setText(values.get(position).name);
-//		TextView weekday_tv = (TextView) rowView.findViewById(R.id.weekday_tv);
-//		TextView day_tv = (TextView) rowView.findViewById(R.id.day_tv);
-//		TextView month_tv = (TextView) rowView.findViewById(R.id.month_tv);
-//		TextView low_degree_tv = (TextView) rowView.findViewById(R.id.low_degree_tv);
-//		TextView degree_unit_tv1 = (TextView) rowView.findViewById(R.id.degree_unit_tv1);
-//		TextView degree_unit_tv2 = (TextView) rowView.findViewById(R.id.degree_unit_tv2);
-//		TextView hi_degree_tv = (TextView) rowView.findViewById(R.id.hi_degree_tv);
-//		StationData data = values.get(position);
-//		if(weekday_tv!=null)weekday_tv.setText(String.valueOf(data.date.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT,
-//				Locale.getDefault())));
-//		if(month_tv!=null)month_tv.setText(String.valueOf(data.date.getDisplayName(Calendar.MONTH, Calendar.SHORT,
-//				Locale.getDefault())));
-//		if(day_tv!=null)day_tv.setText(String.valueOf(data.date.get(Calendar.DAY_OF_MONTH)));
-//		if(low_degree_tv!=null)low_degree_tv.setText(String.valueOf(data.lowDegree));
-//		if(hi_degree_tv!=null)hi_degree_tv.setText(String.valueOf(data.hiDegree));
-//		if(degree_unit_tv1!=null)degree_unit_tv1.setText(context.getString(R.string.fahrenheit_degree));
-//		if(degree_unit_tv2!=null)degree_unit_tv2.setText(context.getString(R.string.fahrenheit_degree));
+		try {
+			TextView station_name_tv = (TextView) rowView
+					.findViewById(R.id.station_name_tv);
+
+			station_name_tv.setText(data.name);
+
+			ImageView station_battery = (ImageView) rowView
+					.findViewById(R.id.station_battery);
+
+			station_battery.setImageResource(data.battery_level);
+		} catch (Exception e) {
+
+		}
 		return rowView;
 	}
-
-	
+	@Override
+	public boolean isEnabled(int position) {
+	    if(position==0)return false;
+	    else return true;
+	}
 }

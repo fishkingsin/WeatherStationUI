@@ -1,5 +1,6 @@
 package com.idthk.weatherstation.ui.activity;
 
+import com.idthk.weatherstation.data.StationData;
 import com.idthk.weatherstation.ui.HumidityHistoryFragment;
 import com.idthk.weatherstation.ui.PressureHistoryFragment;
 import com.idthk.weatherstation.ui.TemperatureHistoryFragment;
@@ -7,7 +8,6 @@ import com.idthk.weatherstation.ui.Utilities;
 import com.idthk.weatherstation.ui.R;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -18,11 +18,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TabHost;
-import android.widget.Toast;
 import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TabHost.TabSpec;
 import android.support.v4.app.FragmentActivity;
@@ -32,19 +29,25 @@ public class HistoryActivity extends FragmentActivity implements
 		OnTabChangeListener {
 	private TabHost mTabHost;
 	String TAG = HistoryActivity.this.getClass().getSimpleName();
+	private String currentTab;
+	private String TAB="HistoryActivity";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_history);
+		Intent intent = getIntent();
+		Bundle bundle = intent.getExtras();
+		StationData data = (StationData) bundle.getParcelable("StationData");
+//		Log.v(TAB,data.toString());
+		
+		
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		mTabHost = (TabHost) findViewById(android.R.id.tabhost);
 		mTabHost.setup();
-		// TabSpec tabSpec =
-		// mTabHost.newTabSpec(getString(R.string.TEMPERATURE));
-		//
-		// tabSpec.setContent(R.layout.fragment_history_temp);
+		
+
 		View indicator = LayoutInflater.from(this).inflate(R.layout.tab,
 				(ViewGroup) findViewById(android.R.id.tabs), false);
 
@@ -73,16 +76,6 @@ public class HistoryActivity extends FragmentActivity implements
 
 	}
 
-	// private TabSpec newTab(String tag, int labelId, int tabContentId) {
-	//
-	// View indicator = LayoutInflater.from(this).inflate(R.layout.tab,
-	// (ViewGroup) findViewById(android.R.id.tabs), false);
-	// indicator.findViewById(R.id.tabbutton);
-	// TabSpec tabSpec = mTabHost.newTabSpec(tag);
-	// tabSpec.setIndicator(indicator);
-	// tabSpec.setContent(tabContentId);
-	// return tabSpec;
-	// }
 	private TabSpec newTab(String tag, int labelId, int tabContentId,
 			int imageId) {
 
@@ -112,8 +105,10 @@ public class HistoryActivity extends FragmentActivity implements
 		switch (item.getItemId()) {
 
 		case R.id.history_menu_item1:
+			
 			Intent intent = new Intent(this, HistoryListActivity.class);
-
+			intent.putExtra("TAB", currentTab);
+			
 			startActivityForResult(intent, 0);
 			overridePendingTransition(R.anim.slide_in_right,
 					R.anim.slide_out_left);
@@ -132,21 +127,11 @@ public class HistoryActivity extends FragmentActivity implements
 
 	@Override
 	public void onTabChanged(String tabId) {
-
-		// TODO Auto-generated method stub
-//		Log.d(TAG, tabId);
-//		if (tabId.equals(getString(R.string.TEMPERATURE))) {
-//			updateTab(getString(R.string.TEMPERATURE), R.id.fragment1);
-//		} else if (tabId.equals(getString(R.string.HUMIDITY))) {
-//			updateTab(getString(R.string.HUMIDITY), R.id.fragment1);
-//		} else if (tabId.equals(getString(R.string.PRESSURE))) {
-//			updateTab(getString(R.string.PRESSURE), R.id.fragment1);
-//		}
-
 	}
 
 	public void updateTab(String tabId, int placeholder) {
 //		Log.d(TAG, tabId);
+		currentTab = tabId;
 		FragmentManager fm = getSupportFragmentManager();
 		switch (placeholder) {
 		case R.id.fragment1:

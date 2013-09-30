@@ -1,5 +1,6 @@
 package com.idthk.weatherstation.ui.activity;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -9,6 +10,7 @@ import com.idthk.weatherstation.data.StationData;
 import com.idthk.weatherstation.ui.R;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
@@ -18,16 +20,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity implements OnClickListener,
-		OnNavigationListener {
+public class MainActivity extends Activity implements OnNavigationListener {
 	public class MainStationData extends StationData {
 
 		public MainStationData(String _name) {
@@ -57,23 +56,39 @@ public class MainActivity extends Activity implements OnClickListener,
 
 		ActionBar actionBar = getActionBar();
 
-		TextView data_tv = (TextView) findViewById(R.id.home_panel_date_tv);
-		Calendar cal = Calendar.getInstance();
-
-		SimpleDateFormat sdf = new SimpleDateFormat("EEE. d MMM yyyy");
-		data_tv.setText(sdf.format(cal.getTime()));
+		
 
 		for (int i = 0; i < 10; i++) {
 			if (i == 0) {
 				stationData.add(new MainStationData("Main"));
-				stationData.add(new MainStationData("Main"));
+				stationData.add(new ChannelData("Main"));
 			} else
 				stationData.add(new ChannelData("Channel" + String.valueOf(i)));
 		}
 		ListView mainList = (ListView) findViewById(R.id.main_list);
 		MainAdapterArray adapter = new MainAdapterArray(this, stationData);
 		mainList.setAdapter(adapter);
+		mainList.setOnItemClickListener(new OnItemClickListener() {
 
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long arg3) {
+				if (position != 0) {
+					StationData data = stationData.get(position);
+
+					Intent intent = new Intent(MainActivity.this,
+							HistoryActivity.class);
+					Bundle extras = new Bundle();
+					extras.putParcelable("StationData", data);
+
+					intent.putExtras(extras);
+					startActivityForResult(intent, 0);
+					overridePendingTransition(R.anim.slide_in_right,
+							R.anim.slide_out_left);
+				}
+			}
+
+		});
 	}
 
 	@Override
@@ -106,33 +121,6 @@ public class MainActivity extends Activity implements OnClickListener,
 	}
 
 	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
-		// if(v.getId()==R.id.button_history)
-		// {
-		// Intent intent = new Intent(this, HistoryActivity.class);
-		//
-		// startActivityForResult(intent, 0);
-		// overridePendingTransition(R.anim.slide_in_right,
-		// R.anim.slide_out_left);
-		// }
-		// else
-		// for (int i = 0; i < stationView.length; i++) {
-		// if (v.getId() == stationView[i]) {
-		// Intent intent = new Intent(this, HistoryActivity.class);
-		//
-		// startActivityForResult(intent, 0);
-		// overridePendingTransition(R.anim.slide_in_right,
-		// R.anim.slide_out_left);
-		// return;
-		// }
-		// }
-		// if (v.getId() == R.id.button_settings) {
-		//
-		// }
-	}
-
-	@Override
 	public boolean onNavigationItemSelected(int itemPosition, long itemId) {
 		// TODO Auto-generated method stub
 		Log.v(TAG, "item " + String.valueOf(itemId));
@@ -156,5 +144,6 @@ public class MainActivity extends Activity implements OnClickListener,
 			return false;
 		}
 	}
+	
 
 }
