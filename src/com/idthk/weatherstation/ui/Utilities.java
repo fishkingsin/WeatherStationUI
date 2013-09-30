@@ -1,7 +1,9 @@
 /**
  * 
  */
-package com.idthk.weatherstationui;
+package com.idthk.weatherstation.ui;
+
+import com.idthk.weatherstation.ui.R;
 
 import android.app.Activity;
 

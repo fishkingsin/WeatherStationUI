@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dslv="http://schemas.android.com/apk/res/com.idthk.weatherstation.ui"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,48 +12,55 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".StationActivity" >
 
-	<LinearLayout
-	    android:layout_width="320dp"
-	    android:layout_height="match_parent"
-	    android:orientation="vertical" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="vertical" >
 
-	    <com.terlici.dragndroplist.DragNDropListView
-	        android:id="@+id/list1"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_marginBottom="10dp"
-	        android:layout_weight="0.8"
-	        android:divider="@android:color/transparent"
-	        android:dividerHeight="10.0sp"
-	        android:fadeScrollbars="false"
-	        android:listSelector="@drawable/station_selector"
-	        android:paddingBottom="10dp" >
+        <com.mobeta.android.dslv.DragSortListView
+            android:id="@+id/station_list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1.0"
+            android:dividerHeight="5dp"
+            dslv:collapsed_height="2dp"
+            dslv:drag_enabled="true"
+            dslv:drag_handle_id="@drawable/grabber"
+            dslv:drag_scroll_start="0.33"
+            dslv:drag_start_mode="onMove"
+            dslv:float_alpha="0.6"
+            dslv:max_drag_scroll_speed="0.5"
+            dslv:remove_enabled="true"
+            dslv:remove_mode="flingRemove"
+            dslv:slide_shuffle_speed="0.3"
+            dslv:sort_enabled="true"
+            dslv:track_drag_sort="false"
+            dslv:use_default_controller="true" />
 
-	    </com.terlici.dragndroplist.DragNDropListView>
-	    <com.terlici.dragndroplist.DragNDropListView
-	        android:id="@+id/list2"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_marginBottom="10dp"
-	        android:layout_weight="0.8"
-	        android:divider="@android:color/transparent"
-	        android:dividerHeight="10.0sp"
-	        android:fadeScrollbars="false"
-	        android:listSelector="@drawable/station_selector"
-	        android:visibility="gone"
-	        android:paddingBottom="10dp" >
+        <!--
+     	    <com.commonsware.cwac.tlv.TouchListView
+	        android:id="@+id/station_list"
+	        android:layout_width="fill_parent"
+	        android:layout_height="fill_parent"
+	        android:layout_weight="1.0"
+	        android:drawSelectorOnTop="false"
+	        tlv:expanded_height="128dip"
+	        tlv:grabber="@+id/icon"
+	        tlv:normal_height="64dip"
+	        tlv:remove_mode="slideRight" />
+        -->
 
-	    </com.terlici.dragndroplist.DragNDropListView>
-
-	    <Button
-	        android:id="@+id/btn_modify_connected_station"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_gravity="bottom"
-	        android:background="@drawable/station_item_bg"
-	        android:text="@string/remove_station"
-	        android:textColor="@color/white" />
-
-	</LinearLayout>
+        <Button
+            android:id="@+id/btn_modify_connected_station"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/station_item_bg"
+            android:text="@string/remove_station"
+            android:textColor="@color/white" />
+    </LinearLayout>
 
 </RelativeLayout>

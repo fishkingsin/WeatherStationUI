@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.idthk.weatherstationui"
+    package="com.idthk.weatherstation.ui"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,20 +23,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SettingsActivity"
+            android:name=".activity.SettingsActivity"
             android:label="@string/SETTINGS" >
         </activity>
         <activity
-            android:name=".HistoryActivity"
+            android:name=".activity.HistoryActivity"
             android:label="@string/HISTORY" >
         </activity>
         <activity
-            android:name=".StationActivity"
+            android:name=".activity.StationActivity"
             android:label="@string/STATION" >
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
         </activity>
         <activity
-            android:name=".UnitSettingActivity"
-            >
+            android:name=".activity.HistoryListActivity"
+            android:label="@string/SELECT_DATE" >
+        </activity>
+        <activity android:name=".activity.UnitSettingActivity" >
+        </activity>
+        <activity android:name=".activity.RenameActivity" >
         </activity>
         
     </application>

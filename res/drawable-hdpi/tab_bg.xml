@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    
+    <!-- <item>
+        <shape>
+            <gradient
+                android:angle="270"
+                android:centerColor="#000000"
+                android:centerX="0.1"
+                android:centerY="0.1"
+                android:endColor="#00000000"
+                android:startColor="#999999" >
+            </gradient>
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <gradient
+                android:angle="90"
+                android:centerColor="#000000"
+                android:centerX="0.1"
+                android:centerY="0.1"
+                android:endColor="#00000000"
+                android:startColor="#999999" >
+            </gradient>
+        </shape>
+    </item> -->
+    <item>
+        <bitmap android:src="@drawable/icon_bar_highlight"></bitmap>
+   	</item>
+
+</layer-list>

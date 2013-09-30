@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,265 +11,280 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".SettingsActivity" >
 
-	<ScrollView
-	    android:id="@+id/scrollView1"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content" >
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_gravity="center"
+	    android:layout_marginLeft="20dp"
+	    android:layout_marginRight="20dp"
+	    android:orientation="vertical" >
 
-	    <LinearLayout
-	        android:layout_width="320dp"
-	        android:layout_height="match_parent"
-	        android:gravity="center_vertical"
-	        android:orientation="vertical" >
+	    <ScrollView
+	        android:id="@+id/scrollView1"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_vertical|center_horizontal"
+	        android:layout_weight="1.0" >
 
-	        <RelativeLayout
-	            android:id="@+id/button_station"
+	        <LinearLayout
 	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:background="@drawable/setting_station_bg" >
+	            android:layout_height="match_parent"
+	            android:gravity="center_vertical"
+	            android:orientation="vertical" >
 
-	            <ImageView
-	                android:id="@+id/ImageView09"
-	                android:layout_width="wrap_content"
+	            <RelativeLayout
+	                android:id="@+id/button_station"
+	                android:layout_width="match_parent"
 	                android:layout_height="wrap_content"
-	                android:layout_alignParentRight="true"
-	                android:layout_centerVertical="true"
-	                android:layout_marginRight="15dp"
-	                android:src="@drawable/white_arrow_right" />
+	                android:background="@drawable/setting_station_bg" >
 
-	            <ImageView
-	                android:id="@+id/imageView1"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_alignParentLeft="true"
-	                android:layout_centerVertical="true"
-	                android:layout_marginLeft="15dp"
-	                android:src="@drawable/sensor_icon" />
+	                <ImageView
+	                    android:id="@+id/ImageView09"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_alignParentRight="true"
+	                    android:layout_centerVertical="true"
+	                    android:layout_marginRight="15dp"
+	                    android:src="@drawable/white_arrow_right" />
+
+	                <ImageView
+	                    android:id="@+id/grabber_icon"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_alignParentLeft="true"
+	                    android:layout_centerVertical="true"
+	                    android:layout_marginLeft="15dp"
+	                    android:src="@drawable/sensor_icon" />
+
+	                <TextView
+	                    android:id="@+id/label"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_alignTop="@+id/ImageView09"
+	                    android:layout_centerVertical="true"
+	                    android:layout_marginLeft="10dp"
+	                    android:layout_toRightOf="@+id/grabber_icon"
+	                    android:text="@string/STATION"
+	                    android:textAppearance="?android:attr/textAppearanceLarge"
+	                    android:textColor="@color/white" />
+	            </RelativeLayout>
 
 	            <TextView
-	                android:id="@+id/label"
+	                android:id="@+id/textView2"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
-	                android:layout_alignTop="@+id/ImageView09"
-	                android:layout_centerVertical="true"
+	                android:layout_marginBottom="10dp"
 	                android:layout_marginLeft="10dp"
-	                android:layout_toRightOf="@+id/imageView1"
-	                android:text="@string/STATION"
-	                android:textAppearance="?android:attr/textAppearanceLarge"
-	                android:textColor="@color/white" />
-
-	        </RelativeLayout>
-
-	        <TextView
-	            android:id="@+id/textView2"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:layout_marginBottom="10dp"
-	            android:layout_marginLeft="10dp"
-	            android:layout_marginTop="20dp"
-	            android:text="@string/Measurement_Unit"
-	            android:textAppearance="?android:attr/textAppearanceMedium"
-	            android:textColor="@color/white" />
-
-	        <RelativeLayout
-	            android:id="@+id/button_temperature"
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:background="@drawable/setting_top_bg"
-	            android:gravity="bottom" >
-
-	            <ImageView
-	                android:id="@+id/ImageView01"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_alignParentLeft="true"
-	                android:layout_alignParentTop="true"
-	                android:src="@drawable/tem_icon_yellow" />
-
-	            <TextView
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_centerVertical="true"
-	                android:layout_toRightOf="@+id/ImageView01"
-	                android:text="@string/TEMPERATURE"
-	                android:textAppearance="?android:attr/textAppearanceSmall"
-	                android:textColor="@color/white" />
-
-	            <ImageView
-	                android:id="@+id/ImageView02"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_alignBottom="@+id/TextView01"
-	                android:layout_alignParentRight="true"
-	                android:layout_centerVertical="true"
-	                android:layout_marginRight="32dp"
-	                android:src="@drawable/white_arrow_right" />
-
-	        </RelativeLayout>
-
-	        <RelativeLayout
-	            android:id="@+id/button_pressure"
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:layout_weight="1"
-	            android:background="@drawable/setting_loop_bg" >
-
-	            <ImageView
-	                android:id="@+id/ImageView03"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_alignParentLeft="true"
-	                android:layout_alignParentTop="true"
-	                android:src="@drawable/pressure_icon_yellow" />
-
-	            <TextView
-	                android:id="@+id/TextView02"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_centerVertical="true"
-	                android:layout_toRightOf="@+id/ImageView03"
-	                android:text="@string/PRESSURE"
-	                android:textAppearance="?android:attr/textAppearanceSmall"
-	                android:textColor="@color/white" />
-
-	            <ImageView
-	                android:id="@+id/ImageView04"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_alignBottom="@+id/TextView02"
-	                android:layout_alignParentRight="true"
-	                android:layout_centerVertical="true"
-	                android:layout_marginRight="30dp"
-	                android:src="@drawable/white_arrow_right" />
-
-	        </RelativeLayout>
-
-	        <RelativeLayout
-	            android:id="@+id/button_rainfall"
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:layout_weight="1"
-	            android:background="@drawable/setting_loop_bg" >
-
-	            <ImageView
-	                android:id="@+id/ImageView05"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_alignParentLeft="true"
-	                android:layout_alignParentTop="true"
-	                android:src="@drawable/rain_icon_yellow" />
-
-	            <TextView
-	                android:id="@+id/TextView03"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_alignBottom="@+id/ImageView06"
-	                android:layout_centerVertical="true"
-	                android:layout_toRightOf="@+id/ImageView05"
-	                android:text="@string/RAINFALL"
-	                android:textAppearance="?android:attr/textAppearanceSmall"
-	                android:textColor="@color/white" />
-
-	            <ImageView
-	                android:id="@+id/ImageView06"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_alignParentRight="true"
-	                android:layout_centerVertical="true"
-	                android:layout_marginRight="30dp"
-	                android:src="@drawable/white_arrow_right" />
-
-	        </RelativeLayout>
-
-	        <RelativeLayout
-	            android:id="@+id/button_windspeed"
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:layout_marginBottom="30dp"
-	            android:layout_weight="1"
-	            android:background="@drawable/setting_bottom_bg" >
-
-	            <ImageView
-	                android:id="@+id/ImageView07"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_alignParentLeft="true"
-	                android:layout_alignParentTop="true"
-	                android:src="@drawable/wind_icon_yellow" />
-
-	            <TextView
-	                android:id="@+id/TextView04"
-	                android:layout_width="wrap_content"
-	                android:layout_height="wrap_content"
-	                android:layout_alignParentTop="true"
-	                android:layout_centerVertical="true"
-	                android:layout_marginTop="18dp"
-	                android:layout_toRightOf="@+id/ImageView07"
-	                android:text="@string/WIND_SPEED"
+	                android:layout_marginTop="20dp"
+	                android:text="@string/Measurement_Unit"
 	                android:textAppearance="?android:attr/textAppearanceMedium"
 	                android:textColor="@color/white" />
 
-	            <ImageView
-	                android:id="@+id/ImageView08"
-	                android:layout_width="wrap_content"
+	            <RelativeLayout
+	                android:id="@+id/button_temperature"
+	                android:layout_width="match_parent"
 	                android:layout_height="wrap_content"
-	                android:layout_alignParentRight="true"
-	                android:layout_alignTop="@+id/TextView04"
-	                android:layout_centerVertical="true"
-	                android:layout_marginRight="30dp"
-	                android:src="@drawable/white_arrow_right" />
+	                android:background="@drawable/setting_top_bg"
+	                android:gravity="bottom" >
 
-	        </RelativeLayout>
+	                <ImageView
+	                    android:id="@+id/ImageView01"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_alignParentLeft="true"
+	                    android:layout_alignParentTop="true"
+	                    android:src="@drawable/tem_icon_yellow" />
 
-	        <RelativeLayout
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:background="@drawable/setting_top_bg" >
+	                <TextView
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_centerVertical="true"
+	                    android:layout_toRightOf="@+id/ImageView01"
+	                    android:text="@string/TEMPERATURE"
+	                    android:textAppearance="?android:attr/textAppearanceSmall"
+	                    android:textColor="@color/white" />
 
-	            <TextView
-	                android:id="@+id/TextView05"
-	                android:layout_width="wrap_content"
+	                <ImageView
+	                    android:id="@+id/ImageView02"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_alignBottom="@+id/TextView01"
+	                    android:layout_alignParentRight="true"
+	                    android:layout_centerVertical="true"
+	                    android:layout_marginRight="10dp"
+	                    android:src="@drawable/white_arrow_right" />
+	            </RelativeLayout>
+
+	            <RelativeLayout
+	                android:id="@+id/button_pressure"
+	                android:layout_width="match_parent"
 	                android:layout_height="wrap_content"
-	                android:layout_alignParentLeft="true"
-	                android:layout_centerVertical="true"
-	                android:layout_marginLeft="30dp"
-	                android:text="@string/Hide_Unavailable_Sensor"
-	                android:textAppearance="?android:attr/textAppearanceMedium"
-	                android:textColor="@color/white" />
+	                android:layout_weight="1"
+	                android:background="@drawable/setting_loop_bg" >
 
-	            <ToggleButton
-	                android:id="@+id/toggleButton1"
-	                android:layout_width="wrap_content"
+	                <ImageView
+	                    android:id="@+id/ImageView03"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_alignParentLeft="true"
+	                    android:layout_alignParentTop="true"
+	                    android:src="@drawable/pressure_icon_yellow" />
+
+	                <TextView
+	                    android:id="@+id/TextView02"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_centerVertical="true"
+	                    android:layout_toRightOf="@+id/ImageView03"
+	                    android:text="@string/PRESSURE"
+	                    android:textAppearance="?android:attr/textAppearanceSmall"
+	                    android:textColor="@color/white" />
+
+	                <ImageView
+	                    android:id="@+id/ImageView04"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_alignParentLeft="false"
+	                    android:layout_alignParentRight="true"
+	                    android:layout_alignParentTop="false"
+	                    android:layout_centerVertical="true"
+	                    android:layout_marginRight="10dp"
+	                    android:src="@drawable/white_arrow_right" />
+
+	            </RelativeLayout>
+
+	            <RelativeLayout
+	                android:id="@+id/button_rainfall"
+	                android:layout_width="match_parent"
 	                android:layout_height="wrap_content"
-	                android:layout_alignParentRight="true"
-	                android:layout_centerVertical="true"
-	                android:layout_marginRight="18dp"
-	                android:text="ToggleButton" />
+	                android:layout_weight="1"
+	                android:background="@drawable/setting_loop_bg" >
 
-	        </RelativeLayout>
+	                <ImageView
+	                    android:id="@+id/ImageView05"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_alignParentLeft="true"
+	                    android:layout_alignParentTop="true"
+	                    android:src="@drawable/rain_icon_yellow" />
 
-	        <RelativeLayout
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:layout_marginBottom="10dp"
-	            android:layout_weight="1"
-	            android:background="@drawable/setting_bottom_bg" >
+	                <TextView
+	                    android:id="@+id/TextView03"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_alignBottom="@+id/ImageView06"
+	                    android:layout_centerVertical="true"
+	                    android:layout_toRightOf="@+id/ImageView05"
+	                    android:text="@string/RAINFALL"
+	                    android:textAppearance="?android:attr/textAppearanceSmall"
+	                    android:textColor="@color/white" />
 
-	            <TextView
-	                android:id="@+id/TextView06"
-	                android:layout_width="wrap_content"
+	                <ImageView
+	                    android:id="@+id/ImageView06"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_alignParentRight="true"
+	                    android:layout_centerVertical="true"
+	                    android:layout_marginRight="10dp"
+	                    android:src="@drawable/white_arrow_right" />
+	            </RelativeLayout>
+
+	            <RelativeLayout
+	                android:id="@+id/button_windspeed"
+	                android:layout_width="match_parent"
 	                android:layout_height="wrap_content"
-	                android:layout_alignParentLeft="true"
-	                android:layout_centerVertical="true"
-	                android:layout_marginLeft="30dp"
-	                android:text="@string/Automatically_hide_unpaired_disconnected_sensor_s_"
-	                android:textAppearance="?android:attr/textAppearanceSmall"
-	                android:textColor="@color/white" />
+	                android:layout_marginBottom="30dp"
+	                android:layout_weight="1"
+	                android:background="@drawable/setting_bottom_bg" >
 
-	        </RelativeLayout>
+	                <ImageView
+	                    android:id="@+id/ImageView07"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_alignParentLeft="true"
+	                    android:layout_alignParentTop="true"
+	                    android:src="@drawable/wind_icon_yellow" />
 
-	    </LinearLayout>
+	                <TextView
+	                    android:id="@+id/TextView04"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_alignParentTop="true"
+	                    android:layout_centerVertical="true"
+	                    android:layout_marginTop="18dp"
+	                    android:layout_toRightOf="@+id/ImageView07"
+	                    android:text="@string/WIND_SPEED"
+	                    android:textAppearance="?android:attr/textAppearanceMedium"
+	                    android:textColor="@color/white" />
 
-	</ScrollView>
+	                <ImageView
+	                    android:id="@+id/ImageView08"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_alignParentRight="true"
+	                    android:layout_alignTop="@+id/TextView04"
+	                    android:layout_centerVertical="true"
+	                    android:layout_marginRight="10dp"
+	                    android:src="@drawable/white_arrow_right" />
+	            </RelativeLayout>
 
-</LinearLayout>
+	            <RelativeLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:background="@drawable/setting_top_bg" >
+
+	                <TextView
+	                    android:id="@+id/hide_unavailable_sensor_tv"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_alignParentLeft="true"
+	                    android:layout_centerVertical="true"
+	                    android:layout_marginLeft="10dp"
+	                    android:text="@string/Hide_Unavailable_Sensor"
+	                    android:textAppearance="?android:attr/textAppearanceSmall"
+	                    android:textColor="@color/white" />
+
+	                <ToggleButton
+	                    android:id="@+id/toggle_hide_sensor"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_alignParentRight="true"
+	                    android:layout_centerVertical="true"
+	                    android:layout_marginRight="10dp"
+	                    android:layout_toRightOf="@anim/slide_in_left"
+	                    android:text="ToggleButton" />
+
+	            </RelativeLayout>
+
+	            <RelativeLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:layout_marginBottom="10dp"
+	                android:layout_weight="1"
+	                android:background="@drawable/setting_bottom_bg" >
+
+	                <TextView
+	                    android:id="@+id/TextView06"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:layout_alignParentLeft="true"
+	                    android:layout_centerVertical="true"
+	                    android:layout_marginLeft="10dp"
+	                    android:text="@string/Automatically_hide_unpaired_disconnected_sensor_s_"
+	                    android:textAppearance="?android:attr/textAppearanceSmall"
+	                    android:textColor="@color/white" />
+	            </RelativeLayout>
+	        </LinearLayout>
+	    </ScrollView>
+
+	    <TextView
+	        android:id="@+id/textView1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center_horizontal"
+	        android:text="vesion 1.0.0"
+	        android:textColor="@color/white" />
+
+	</LinearLayout>
+
+</FrameLayout>

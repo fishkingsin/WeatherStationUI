@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">WeatherStationUI</string>
+    <string name="app_name">WeatherStation</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="WIND_SPEED">WIND SPEED</string>
@@ -50,6 +50,7 @@
     <string name="STATION">STATION</string>
     <string name="name">NAME :</string>
     <string name="RENAME">RENAME</string>
+
     <string-array name="temperature_units">
         <item>@string/celsius_degree</item>
         <item>@string/fahrenheit_degree</item>
@@ -69,5 +70,19 @@
         <item>@string/m_s</item>
         <item>@string/knots</item>
     </string-array>
-<string name="refresh">REFRESH</string>
+
+    <string name="refresh">REFRESH</string>
+    <string name="persent">%</string>
+    <string name="UV">UV</string>
+    <string name="EDIT">EDIT</string>
+    <string name="SHOW_ALL_DATE">SHOW ALL DATE</string>
+	<string name="station_name_extra">station_name_extra</string>
+	<string name="station_name_icon">station_name_icon</string>
+	<string name="prefKey">prefKey</string>
+	
+	
+	<string name="pref_temperature_units">pref_temperature_units</string>
+    <string name="pref_pressure_units">pref_pressure_units</string>
+    <string name="pref_rainfall_units">pref_rainfall_units</string>
+    <string name="pref_windspeed_units">pref_windspeed_units</string>
 </resources>

@@ -1,24 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="80px"
-    android:orientation="horizontal"
-    android:gravity="center_vertical"
-    >
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android1="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg" >
 
-    <ImageView
-        android:id="@+id/handler"
-        android:layout_width="60px"
-        android:layout_height="60px"
-        android:src="@android:drawable/btn_star_big_on"
-        android:layout_marginLeft="8px"
-        />
+    <TabHost
+        android1:id="@android:id/tabhost"
+        android1:layout_width="match_parent"
+        android1:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        <LinearLayout
+            android1:layout_width="match_parent"
+            android1:layout_height="match_parent"
+            android1:orientation="vertical" >
 
-</LinearLayout>
+            <FrameLayout
+                android1:id="@android:id/tabcontent"
+                android1:layout_width="match_parent"
+                android1:layout_height="match_parent"
+                android1:layout_marginLeft="20dp"
+                android1:layout_marginRight="20dp"
+                android1:layout_weight="1.0" >
+               
+                <FrameLayout
+                    android:id="@+id/fragment1"
+                    android1:layout_width="match_parent"
+                    android1:layout_height="match_parent" 
+                    android1:layout_weight="1.0">
+                </FrameLayout>
+
+                <FrameLayout
+                    android1:id="@+id/fragment2"
+                    android1:layout_width="match_parent"
+                    android1:layout_height="match_parent"
+                    android1:layout_weight="1.0" >
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/fragment3"
+                    android1:layout_width="match_parent"
+                    android1:layout_height="match_parent" >
+                </FrameLayout>
+
+                <FrameLayout
+                    android1:id="@+id/fragment4"
+                    android1:layout_width="match_parent"
+                    android1:layout_height="match_parent" >
+                </FrameLayout>
+
+                <FrameLayout
+                    android1:id="@+id/fragment5"
+                    android1:layout_width="match_parent"
+                    android1:layout_height="match_parent" >
+                </FrameLayout>
+
+                <FrameLayout
+                    android1:id="@+id/fragment6"
+                    android1:layout_width="match_parent"
+                    android1:layout_height="match_parent" >
+                </FrameLayout>
+
+            </FrameLayout>
+
+            <TabWidget
+                android1:id="@android:id/tabs"
+                android1:layout_width="match_parent"
+                android1:layout_height="wrap_content" >
+
+            </TabWidget>
+ 
+        </LinearLayout>
+    </TabHost>
+
+</FrameLayout>
