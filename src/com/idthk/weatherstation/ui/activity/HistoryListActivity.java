@@ -15,17 +15,23 @@ import android.view.MenuItem;
 import android.widget.ListView;
 
 public class HistoryListActivity extends Activity {
-	private static HistoryData[] items = { new HistoryData(), new HistoryData(), new HistoryData(), new HistoryData(), new HistoryData(),};
+	private static HistoryData[] items = { new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(), };
 	HistoryItemAdapterArray adapter;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_historylist);
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
-		ListView listView =  (ListView) findViewById(R.id.history_list);
+		ListView listView = (ListView) findViewById(R.id.history_list);
 		HistoryData[] names = items;// getResources().getStringArray(R.array.random_names);
-		ArrayList<HistoryData> list = new ArrayList<HistoryData>(Arrays.asList(names));
+		ArrayList<HistoryData> list = new ArrayList<HistoryData>(
+				Arrays.asList(names));
 
 		adapter = new HistoryItemAdapterArray(this, list);
 		listView.setAdapter(adapter);

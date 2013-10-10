@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:text="FRI"
+            android:text="@string/na"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/white" />
 
@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
-            android:text="1"
+            android:text="@string/na"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/orange" />
 
@@ -39,7 +39,7 @@
             android:id="@+id/month_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DEC"
+            android:text="@string/na"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/orange" />
     </LinearLayout>
@@ -57,7 +57,7 @@
             android:id="@+id/hi_degree_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="30.4"
+            android:text="@string/na"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/white" />
 
@@ -82,7 +82,7 @@
             android:id="@+id/low_degree_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10.5"
+            android:text="@string/na"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/white" />
 

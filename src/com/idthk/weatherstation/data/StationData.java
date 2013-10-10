@@ -31,10 +31,14 @@ public class StationData implements Parcelable {
 	private float degree;
 	private float maxDegree;
 	private float minDegree;
-	private int humiditiy;
+	private int humidity;
 	private int pressure;
 	private Integer battery_level;
 	private String format = "%.2f";
+	private int maxHumidity;
+	private int minHumidity;
+	private int maxPressure;
+	private int minPressure;
 	
 	public static final Parcelable.Creator<StationData> CREATOR = new Parcelable.Creator<StationData>() {
 		public StationData createFromParcel(Parcel in) {
@@ -45,14 +49,15 @@ public class StationData implements Parcelable {
 			return new StationData[size];
 		}
 	};
+	
 	public StationData(Parcel in) {
 		readFromParcel( in );
 	}
 	public StationData(String name) {
 		this.setName(name);
-		setDegree(0);
-		setHumiditiy(0);
-		setPressure(0);
+//		setDegree(0);
+//		setHumiditiy(0);
+//		setPressure(0);
 		setBattery_level(Battery_Level.MID.getValue());
 	}
 	private void readFromParcel(Parcel in ) {
@@ -105,10 +110,10 @@ public class StationData implements Parcelable {
 		this.pressure = pressure;
 	}
 	public int getHumiditiy() {
-		return humiditiy;
+		return humidity;
 	}
 	public void setHumiditiy(int humiditiy) {
-		this.humiditiy = humiditiy;
+		this.humidity = humiditiy;
 	}
 	public Integer getBattery_level() {
 		return battery_level;
@@ -121,6 +126,30 @@ public class StationData implements Parcelable {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public CharSequence getHumidityAsString() {
+		// TODO Auto-generated method stub
+		return String.valueOf(humidity);
+	}
+	public CharSequence getMaxHumidityAsString() {
+		// TODO Auto-generated method stub
+		return String.valueOf(maxHumidity);
+	}
+	public CharSequence getMinHumidityAsString() {
+		// TODO Auto-generated method stub
+		return String.valueOf(minHumidity);
+	}
+	public CharSequence getPressureAsString() {
+		// TODO Auto-generated method stub
+		return String.valueOf(pressure);
+	}
+	public CharSequence getMaxPressureAsString() {
+		// TODO Auto-generated method stub
+		return String.valueOf(maxPressure);
+	}
+	public CharSequence getMinPressureAsString() {
+		// TODO Auto-generated method stub
+		return String.valueOf(minPressure);
 	}
 
 }

@@ -1,5 +1,8 @@
 package com.idthk.weatherstation.ui;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import com.idthk.weatherstation.data.StationData;
 import com.idthk.weatherstation.ui.R;
 
@@ -31,6 +34,15 @@ public class TemperatureHistoryFragment extends Fragment {
 
 		View rootView = inflater.inflate(R.layout.fragment_history_temp,
 				container, false);
+		
+		SimpleDateFormat sdf = new SimpleDateFormat(getActivity().getString(R.string.date_format));
+		TextView data_tv = (TextView) rootView
+				.findViewById(R.id.home_panel_date_tv);
+		data_tv.setText(sdf.format(Calendar.getInstance().getTime()));
+		TextView user_tv = (TextView) rootView
+				.findViewById(R.id.user_tv);
+		user_tv.setText(getActivity().getString(R.string.default_user_name));
+		
 		try {
 			((TextView) rootView.findViewById(R.id.temperature_tv))
 					.setText(data.getDegreeAsString());

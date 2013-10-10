@@ -58,7 +58,7 @@ public class MainAdapterArray extends ArrayAdapter<StationData> {
 					.findViewById(R.id.home_panel_date_tv);
 			Calendar cal = Calendar.getInstance();
 
-			SimpleDateFormat sdf = new SimpleDateFormat("EEE. d MMM yyyy");
+			SimpleDateFormat sdf = new SimpleDateFormat(context.getString(R.string.date_format));
 			data_tv.setText(sdf.format(cal.getTime()));
 		} else {
 			rowView = inflater.inflate(R.layout.station_panel_small, parent,

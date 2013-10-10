@@ -12,7 +12,7 @@
         android:layout_alignParentTop="false"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
-        android:text="TextView"
+        android:text="@string/na"
         android:textColor="@color/white" />
 
     <ImageView

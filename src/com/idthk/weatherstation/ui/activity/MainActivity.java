@@ -55,15 +55,18 @@ public class MainActivity extends Activity implements OnNavigationListener {
 		for (int i = 0; i < 10; i++) {
 			if (i == 0) {
 				MainStationData data = new MainStationData("Main");
+				data.setPressure(1000);
 				data.setDegree((float)Math.random()*30);
 				stationData.add(data );
 				ChannelData _data = new ChannelData("Main");
-				data.setDegree((float)Math.random()*30);
+				_data.setDegree((float)Math.random()*30);
+				_data.setHumiditiy(70);
 				stationData.add(_data);
 			} else
 			{
 				ChannelData data_ = new ChannelData("Channel" + String.valueOf(i));
 				data_.setDegree((float)Math.random()*30);
+				data_.setHumiditiy(75);
 				stationData.add(data_);
 			}
 		}
