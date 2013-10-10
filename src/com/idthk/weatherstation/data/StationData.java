@@ -27,11 +27,15 @@ public class StationData implements Parcelable {
 
 	}
 
-	public String name;
-	public float degree;
-	public int humiditiy;
-	public int pressure;
-	public Integer battery_level;
+	private String name;
+	private float degree;
+	private float maxDegree;
+	private float minDegree;
+	private int humiditiy;
+	private int pressure;
+	private Integer battery_level;
+	private String format = "%.2f";
+	
 	public static final Parcelable.Creator<StationData> CREATOR = new Parcelable.Creator<StationData>() {
 		public StationData createFromParcel(Parcel in) {
 			return new StationData(in);
@@ -45,18 +49,18 @@ public class StationData implements Parcelable {
 		readFromParcel( in );
 	}
 	public StationData(String name) {
-		this.name = name;
-		degree = 0;
-		humiditiy = 0;
-		pressure = 0;
-		battery_level = Battery_Level.MID.getValue();
+		this.setName(name);
+		setDegree(0);
+		setHumiditiy(0);
+		setPressure(0);
+		setBattery_level(Battery_Level.MID.getValue());
 	}
 	private void readFromParcel(Parcel in ) {
-		name = in.readString();
-		degree = in.readFloat();
-		humiditiy = in.readInt();
-		pressure = in.readInt();
-		battery_level = Battery_Level.MID.getValue();
+		setName(in.readString());
+		setDegree(in.readFloat());
+		setHumiditiy(in.readInt());
+		setPressure(in.readInt());
+		setBattery_level(Battery_Level.MID.getValue());
 	}
 
 	@Override
@@ -69,12 +73,54 @@ public class StationData implements Parcelable {
 	public void writeToParcel(Parcel dest, int flags) {
 		// TODO Auto-generated method stub
 		
-		dest.writeString(name);
-		dest.writeFloat(degree);
-		dest.writeInt(humiditiy);
-		dest.writeInt(pressure);
-		dest.writeInt(battery_level);
+		dest.writeString(getName());
+		dest.writeFloat(getDegree());
+		dest.writeInt(getHumiditiy());
+		dest.writeInt(getPressure());
+		dest.writeInt(getBattery_level());
 
+	}
+	public CharSequence getDegreeasString() {
+		// TODO Auto-generated method stub
+		return String.format(format ,getDegree());
+	}
+	public CharSequence getMaxDegreeasString() {
+		// TODO Auto-generated method stub
+		return String.format(format ,maxDegree);
+	}
+	public CharSequence getMinDegreeasString() {
+		// TODO Auto-generated method stub
+		return String.format(format ,minDegree);
+	}
+	public float getDegree() {
+		return degree;
+	}
+	public void setDegree(float degree) {
+		this.degree = degree;
+	}
+	public int getPressure() {
+		return pressure;
+	}
+	public void setPressure(int pressure) {
+		this.pressure = pressure;
+	}
+	public int getHumiditiy() {
+		return humiditiy;
+	}
+	public void setHumiditiy(int humiditiy) {
+		this.humiditiy = humiditiy;
+	}
+	public Integer getBattery_level() {
+		return battery_level;
+	}
+	public void setBattery_level(Integer battery_level) {
+		this.battery_level = battery_level;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

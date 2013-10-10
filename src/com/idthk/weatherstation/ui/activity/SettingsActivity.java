@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.Toast;
@@ -64,7 +63,6 @@ public class SettingsActivity extends Activity implements OnClickListener {
 				} else {
 
 					intent = new Intent(this, UnitSettingActivity.class);
-					Bundle bundle = new Bundle();
 					intent.putExtra(getString(R.string.Measurement_Unit), i);
 
 				}

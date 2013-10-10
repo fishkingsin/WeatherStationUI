@@ -10,10 +10,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 public class HistoryItemAdapterArray extends ArrayAdapter<HistoryData> {
@@ -21,8 +18,6 @@ public class HistoryItemAdapterArray extends ArrayAdapter<HistoryData> {
 	private final Context context;
 	private ArrayList<HistoryData> values;
 	private ArrayList<View> views;
-
-	private boolean enableDrag = false;
 
 	public HistoryItemAdapterArray(Context context, ArrayList<HistoryData> values) {
 		super(context, R.layout.history_list_item_layout, values);

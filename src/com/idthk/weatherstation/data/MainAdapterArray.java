@@ -42,13 +42,13 @@ public class MainAdapterArray extends ArrayAdapter<StationData> {
 		View rowView = null;
 		StationData data = values.get(position);
 		if (position == 0) {
-			if (data.name.equals("Main")) {
+			if (data.getName().equals("Main")) {
 
 				rowView = inflater.inflate(R.layout.station_panel_large,
 						parent, false);
 				TextView air_pressure_tv = (TextView) rowView
 						.findViewById(R.id.air_pressure_tv);
-				air_pressure_tv.setText(String.valueOf(data.pressure));
+				air_pressure_tv.setText(String.valueOf(data.getPressure()));
 			} else {
 				rowView = inflater.inflate(R.layout.station_panel_empty,
 						parent, false);
@@ -71,20 +71,20 @@ public class MainAdapterArray extends ArrayAdapter<StationData> {
 					.findViewById(R.id.humidity_tv);
 			TextView temperature_tv = (TextView) rowView
 					.findViewById(R.id.temperature_tv);
-			humidity_tv.setText(String.valueOf(data.humiditiy));
-			temperature_tv.setText(String.valueOf(data.degree));
+			humidity_tv.setText(String.valueOf(data.getHumiditiy()));
+			temperature_tv.setText(String.valueOf(data.getDegree()));
 		}
 		views.add(rowView);
 		try {
 			TextView station_name_tv = (TextView) rowView
 					.findViewById(R.id.station_name_tv);
 
-			station_name_tv.setText(data.name);
+			station_name_tv.setText(data.getName());
 
 			ImageView station_battery = (ImageView) rowView
 					.findViewById(R.id.station_battery);
 
-			station_battery.setImageResource(data.battery_level);
+			station_battery.setImageResource(data.getBattery_level());
 		} catch (Exception e) {
 
 		}

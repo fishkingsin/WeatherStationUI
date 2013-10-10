@@ -1,16 +1,11 @@
 package com.idthk.weatherstation.ui.activity;
 
-import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-
 import com.idthk.weatherstation.data.MainAdapterArray;
 import com.idthk.weatherstation.data.StationData;
 import com.idthk.weatherstation.ui.R;
 
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
 import android.app.Activity;
@@ -23,7 +18,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnNavigationListener {
@@ -60,10 +54,18 @@ public class MainActivity extends Activity implements OnNavigationListener {
 
 		for (int i = 0; i < 10; i++) {
 			if (i == 0) {
-				stationData.add(new MainStationData("Main"));
-				stationData.add(new ChannelData("Main"));
+				MainStationData data = new MainStationData("Main");
+				data.setDegree((float)Math.random()*30);
+				stationData.add(data );
+				ChannelData _data = new ChannelData("Main");
+				data.setDegree((float)Math.random()*30);
+				stationData.add(_data);
 			} else
-				stationData.add(new ChannelData("Channel" + String.valueOf(i)));
+			{
+				ChannelData data_ = new ChannelData("Channel" + String.valueOf(i));
+				data_.setDegree((float)Math.random()*30);
+				stationData.add(data_);
+			}
 		}
 		ListView mainList = (ListView) findViewById(R.id.main_list);
 		MainAdapterArray adapter = new MainAdapterArray(this, stationData);

@@ -1,15 +1,11 @@
 package com.idthk.weatherstation.ui.activity;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
 import com.idthk.weatherstation.ui.Utilities;
 import com.idthk.weatherstation.ui.R;
 
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;

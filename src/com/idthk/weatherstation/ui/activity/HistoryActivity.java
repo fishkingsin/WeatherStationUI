@@ -1,17 +1,10 @@
 package com.idthk.weatherstation.ui.activity;
 
-import com.idthk.weatherstation.data.StationData;
-import com.idthk.weatherstation.ui.HumidityHistoryFragment;
-import com.idthk.weatherstation.ui.PressureHistoryFragment;
-import com.idthk.weatherstation.ui.TemperatureHistoryFragment;
-import com.idthk.weatherstation.ui.Utilities;
-import com.idthk.weatherstation.ui.R;
-
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
-
-import android.util.Log;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,8 +15,13 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TabHost.TabSpec;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
+
+import com.idthk.weatherstation.data.StationData;
+import com.idthk.weatherstation.ui.HumidityHistoryFragment;
+import com.idthk.weatherstation.ui.PressureHistoryFragment;
+import com.idthk.weatherstation.ui.R;
+import com.idthk.weatherstation.ui.TemperatureHistoryFragment;
+import com.idthk.weatherstation.ui.Utilities;
 
 public class HistoryActivity extends FragmentActivity implements
 		OnTabChangeListener {
@@ -31,14 +29,34 @@ public class HistoryActivity extends FragmentActivity implements
 	String TAG = HistoryActivity.this.getClass().getSimpleName();
 	private String currentTab;
 	private String TAB="HistoryActivity";
+	public enum Category {
 
+		TEMPERATURE(0),
+
+		HUMIDITY(1),
+
+		PRESSURE(2);
+
+		private final Integer id;
+
+		Category(Integer id) {
+			this.id = id;
+		}
+
+		public Integer getValue() {
+			return id;
+		}
+
+	}
+	Category category;
+	private StationData data;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_history);
 		Intent intent = getIntent();
 		Bundle bundle = intent.getExtras();
-		StationData data = (StationData) bundle.getParcelable("StationData");
+		data = (StationData) bundle.getParcelable("StationData");
 //		Log.v(TAB,data.toString());
 		
 		
@@ -135,37 +153,40 @@ public class HistoryActivity extends FragmentActivity implements
 		FragmentManager fm = getSupportFragmentManager();
 		switch (placeholder) {
 		case R.id.fragment1:
+			category = Category.TEMPERATURE;
 			if (fm.findFragmentByTag(tabId) == null) {
 				// gonna to manage actvitiy here
 				fm.beginTransaction()
 						.replace(
 								placeholder,
 								TemperatureHistoryFragment
-										.newInstance("TemperatureHistory"),
+										.newInstance(data),
 								tabId).commit();
 
 			}
 			break;
 		case R.id.fragment2:
+			category = Category.HUMIDITY;
 			if (fm.findFragmentByTag(tabId) == null) {
 				// gonna to manage actvitiy here
 				fm.beginTransaction()
 						.replace(
 								placeholder,
 								HumidityHistoryFragment
-										.newInstance("HumidityHistory"), tabId)
+										.newInstance(data), tabId)
 						.commit();
 
 			}
 			break;
 		case R.id.fragment3:
+			category = Category.PRESSURE;
 			if (fm.findFragmentByTag(tabId) == null) {
 				// gonna to manage actvitiy here
 				fm.beginTransaction()
 						.replace(
 								placeholder,
 								PressureHistoryFragment
-										.newInstance("PressureHistoryFragment"),
+										.newInstance(data),
 								tabId).commit();
 
 			}

@@ -1,6 +1,7 @@
 package com.idthk.weatherstation.ui;
 
 
+import com.idthk.weatherstation.data.StationData;
 import com.idthk.weatherstation.ui.R;
 
 import android.os.Bundle;
@@ -13,10 +14,10 @@ import android.view.ViewGroup;
 public class HumidityHistoryFragment extends Fragment {
 	public static final String EXTRA_MESSAGE = "EXTRA_MESSAGE";
 	private static final String TAG = HumidityHistoryFragment.class.getSimpleName();
-	public static final HumidityHistoryFragment newInstance(String message) {
+	public static final HumidityHistoryFragment newInstance(StationData data) {
 		HumidityHistoryFragment f = new HumidityHistoryFragment();
 		Bundle bdl = new Bundle(1);
-		bdl.putString(EXTRA_MESSAGE, message);
+		bdl.putParcelable(EXTRA_MESSAGE, data);
 		f.setArguments(bdl);
 		return f;
 	}
