@@ -80,15 +80,15 @@ public class StationData implements Parcelable {
 		dest.writeInt(getBattery_level());
 
 	}
-	public CharSequence getDegreeasString() {
+	public CharSequence getDegreeAsString() {
 		// TODO Auto-generated method stub
 		return String.format(format ,getDegree());
 	}
-	public CharSequence getMaxDegreeasString() {
+	public CharSequence getMaxDegreeAsString() {
 		// TODO Auto-generated method stub
 		return String.format(format ,maxDegree);
 	}
-	public CharSequence getMinDegreeasString() {
+	public CharSequence getMinDegreeAsString() {
 		// TODO Auto-generated method stub
 		return String.format(format ,minDegree);
 	}

@@ -72,7 +72,7 @@ public class MainAdapterArray extends ArrayAdapter<StationData> {
 			TextView temperature_tv = (TextView) rowView
 					.findViewById(R.id.temperature_tv);
 			humidity_tv.setText(String.valueOf(data.getHumiditiy()));
-			temperature_tv.setText(String.valueOf(data.getDegree()));
+			temperature_tv.setText(data.getDegreeAsString());
 		}
 		views.add(rowView);
 		try {

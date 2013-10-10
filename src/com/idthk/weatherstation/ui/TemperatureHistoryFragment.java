@@ -33,11 +33,11 @@ public class TemperatureHistoryFragment extends Fragment {
 				container, false);
 		try {
 			((TextView) rootView.findViewById(R.id.temperature_tv))
-					.setText(data.getDegreeasString());
+					.setText(data.getDegreeAsString());
 			((TextView) rootView.findViewById(R.id.max_temperature_tv))
-					.setText(data.getMaxDegreeasString());
+					.setText(data.getMaxDegreeAsString());
 			((TextView) rootView.findViewById(R.id.min_temperature_tv))
-					.setText(data.getMinDegreeasString());
+					.setText(data.getMinDegreeAsString());
 		} catch (Exception e) {
 
 		}
