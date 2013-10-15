@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.idthk.weatherstation.ui.R;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,19 +51,21 @@ public class MYAdapterArray extends ArrayAdapter<String> {
 		textView.setText(values.get(position));
 		// Change the icon for Windows and iPhone
 		String s = values.get(position);
-		if (s.startsWith("Main")) {
-			imageView.setImageResource(R.drawable.main_icon);
-		} else {
-			imageView.setImageResource(R.drawable.child_icon);
-		}
-		if (enableDrag) {
-			((ImageView) rowView.findViewById(R.id.grabber_icon))
-			.setVisibility(View.VISIBLE);
-		}
-		else
-		{
-			((ImageView) rowView.findViewById(R.id.grabber_icon))
-				.setVisibility(View.GONE);
+		try {
+			if (s.startsWith("Main")) {
+				imageView.setImageResource(R.drawable.main_icon);
+			} else {
+				imageView.setImageResource(R.drawable.child_icon);
+			}
+			if (enableDrag) {
+				((ImageView) rowView.findViewById(R.id.grabber_icon))
+						.setVisibility(View.VISIBLE);
+			} else {
+				((ImageView) rowView.findViewById(R.id.grabber_icon))
+						.setVisibility(View.GONE);
+			}
+		} catch (NullPointerException e) {
+			Log.e("MyAdapterArray", "NullPointerException");
 		}
 		return rowView;
 	}
@@ -73,19 +76,23 @@ public class MYAdapterArray extends ArrayAdapter<String> {
 			for (View view : views) {
 				ImageView im = (ImageView) view.findViewById(R.id.grabber_icon);
 				im.setVisibility(View.VISIBLE);
-				Animation fadeinAnimation = AnimationUtils.loadAnimation(context,
-						R.anim.fade_in);
+				Animation fadeinAnimation = AnimationUtils.loadAnimation(
+						context, R.anim.fade_in);
 				im.startAnimation(fadeinAnimation);
 			}
 		} else {
 			for (View view : views) {
 				ImageView im = (ImageView) view.findViewById(R.id.grabber_icon);
 				im.setVisibility(View.GONE);
-				Animation fadeinAnimation = AnimationUtils.loadAnimation(context,
-						R.anim.fade_out);
+				Animation fadeinAnimation = AnimationUtils.loadAnimation(
+						context, R.anim.fade_out);
 				im.startAnimation(fadeinAnimation);
 			}
 		}
+	}
+
+	public void setValue(int position, String name) {
+		this.values.set(position, name);
 	}
 
 }

@@ -9,7 +9,8 @@ public class HistoryData {
 	public HistoryData()
 	{
 		date = Calendar.getInstance();
-		hiDegree = 20;
-		lowDegree = 10;
+		date.set(Calendar.DAY_OF_MONTH, (int)Math.random()*30);
+		hiDegree = (int) (Math.random()*30);
+		lowDegree = (int) (Math.random()*10);
 	}
 }

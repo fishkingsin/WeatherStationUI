@@ -5,6 +5,7 @@ import com.idthk.weatherstation.ui.R;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -17,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class RenameActivity extends Activity implements TextWatcher{
+	protected static final int REQUEST = 0x908;
 	TextView label;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,7 @@ public class RenameActivity extends Activity implements TextWatcher{
 		String item = this.getIntent().getExtras().getString(getString(R.string.station_name_extra));
 		im.setImageResource(this.getIntent().getExtras().getInt(getString(R.string.station_name_icon)));
 		label.setText(item);
-		EditText editText1 = (EditText)findViewById(R.id.editText1);
+		final EditText editText1 = (EditText)findViewById(R.id.editText1);
 		editText1.setText(item);
 		editText1.addTextChangedListener( this);
 		editText1.setSelection(item.length());
@@ -44,6 +46,11 @@ public class RenameActivity extends Activity implements TextWatcher{
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				//save renamed tv;
+				Intent _result = new Intent();              
+				_result.putExtra(getString(R.string.station_name_extra),editText1.getText());
+				setResult(Activity.RESULT_OK, _result);
+				finish();
+				
 				Utilities.finish(RenameActivity.this);
 			}
 			

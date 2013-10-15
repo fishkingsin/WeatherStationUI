@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class PressureHistoryFragment extends Fragment {
+public class PressureHistoryFragment extends MyFragmentFunction {
 	public static final String EXTRA_MESSAGE = "EXTRA_MESSAGE";
 	public static final PressureHistoryFragment newInstance(StationData data) {
 		PressureHistoryFragment f = new PressureHistoryFragment();
@@ -49,6 +49,8 @@ public class PressureHistoryFragment extends Fragment {
 			} catch (Exception e) {
 
 			}
+		 ViewGroup graph = (ViewGroup) rootView.findViewById(R.id.graph1);
+		 super.createGraph(graph,getActivity());
        return rootView;
     }
 }

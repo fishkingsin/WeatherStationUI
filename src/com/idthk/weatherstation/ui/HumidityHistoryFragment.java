@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class HumidityHistoryFragment extends Fragment {
+public class HumidityHistoryFragment extends MyFragmentFunction {
 	public static final String EXTRA_MESSAGE = "EXTRA_MESSAGE";
 	private static final String TAG = HumidityHistoryFragment.class.getSimpleName();
 	public static final HumidityHistoryFragment newInstance(StationData data) {
@@ -52,6 +52,9 @@ public class HumidityHistoryFragment extends Fragment {
 			} catch (Exception e) {
 
 			}
+		 ViewGroup graph = (ViewGroup) rootView.findViewById(R.id.graph1);
+		 super.createGraph(graph,getActivity());
         return rootView;
     }
+	
 }

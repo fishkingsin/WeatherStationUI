@@ -19,7 +19,12 @@ public class HistoryListActivity extends Activity {
 			new HistoryData(), new HistoryData(), new HistoryData(),
 			new HistoryData(), new HistoryData(), new HistoryData(),
 			new HistoryData(), new HistoryData(), new HistoryData(),
-			new HistoryData(), new HistoryData(), new HistoryData(), };
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			};
 	HistoryItemAdapterArray adapter;
 
 	@Override

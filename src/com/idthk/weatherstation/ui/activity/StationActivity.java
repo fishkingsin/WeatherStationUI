@@ -52,6 +52,8 @@ public class StationActivity extends Activity implements OnClickListener {
 		}
 	};
 
+	protected int position;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -88,6 +90,7 @@ public class StationActivity extends Activity implements OnClickListener {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 			          int position, long id) {
+				StationActivity.this.position = position;
 				// TODO Auto-generated method stub
 				String item = adapter.getItem(position);
 //				Toast.makeText(StationActivity.this,
@@ -95,16 +98,32 @@ public class StationActivity extends Activity implements OnClickListener {
 //						Toast.LENGTH_SHORT).show();
 				
 				Intent intent = new Intent(StationActivity.this, RenameActivity.class);
+				
 				intent.putExtra(getString(R.string.station_name_extra), item);
-				startActivityForResult(intent, 0);
+				startActivityForResult(intent, RenameActivity.REQUEST);
 				overridePendingTransition(R.anim.slide_in_right,
 						R.anim.slide_out_left);
+				
 				// Return true to consume the click event. In this case the
 				// onListItemClick listener is not called anymore.
 			}
 		});
 	}
-
+	@Override 
+	public void onActivityResult(int requestCode, int resultCode, Intent data)
+	{
+		if(resultCode == Activity.RESULT_OK)
+		{
+			switch(requestCode)
+			{
+			case RenameActivity.REQUEST:
+				String name = data.getStringExtra(getString(R.string.station_name_extra));
+				adapter.setValue(this.position, name);
+				break;
+			}
+		}
+		
+	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub

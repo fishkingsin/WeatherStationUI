@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class TemperatureHistoryFragment extends Fragment {
+public class TemperatureHistoryFragment extends MyFragmentFunction {
 
 	public static final String EXTRA_MESSAGE = "EXTRA_MESSAGE";
 
@@ -53,6 +53,8 @@ public class TemperatureHistoryFragment extends Fragment {
 		} catch (Exception e) {
 
 		}
+		ViewGroup graph = (ViewGroup) rootView.findViewById(R.id.graph1);
+		 super.createGraph(graph,getActivity());
 		return rootView;
 	}
 }

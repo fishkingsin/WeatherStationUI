@@ -199,6 +199,12 @@
             android:background="@drawable/history_grah_bar"
             android:orientation="vertical" >
 
+            <include
+                android:id="@+id/graph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                layout="@layout/graphs" />
+
         </LinearLayout>
 
     </LinearLayout>
