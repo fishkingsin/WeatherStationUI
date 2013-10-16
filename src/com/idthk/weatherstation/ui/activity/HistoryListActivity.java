@@ -11,20 +11,13 @@ import com.idthk.weatherstation.ui.R;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ListView;
 
 public class HistoryListActivity extends Activity {
-	private static HistoryData[] items = { new HistoryData(),
-			new HistoryData(), new HistoryData(), new HistoryData(),
-			new HistoryData(), new HistoryData(), new HistoryData(),
-			new HistoryData(), new HistoryData(), new HistoryData(),
-			new HistoryData(), new HistoryData(), new HistoryData(), 
-			new HistoryData(), new HistoryData(), new HistoryData(), 
-			new HistoryData(), new HistoryData(), new HistoryData(), 
-			new HistoryData(), new HistoryData(), new HistoryData(), 
-			new HistoryData(), new HistoryData(), new HistoryData(), 
-			};
+	
+	private static final String TAG = HistoryListActivity.class.getSimpleName();
 	HistoryItemAdapterArray adapter;
 
 	@Override
@@ -34,12 +27,17 @@ public class HistoryListActivity extends Activity {
 		ActionBar actionBar = getActionBar();
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		ListView listView = (ListView) findViewById(R.id.history_list);
-		HistoryData[] names = items;// getResources().getStringArray(R.array.random_names);
-		ArrayList<HistoryData> list = new ArrayList<HistoryData>(
-				Arrays.asList(names));
+
+		try{
+		ArrayList<HistoryData> list = getIntent().getParcelableArrayListExtra(HistoryActivity.KEY_HISTORY);
 
 		adapter = new HistoryItemAdapterArray(this, list);
 		listView.setAdapter(adapter);
+		}
+		catch(NullPointerException e)
+		{
+			
+		}
 	}
 
 	@Override

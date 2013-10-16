@@ -53,6 +53,7 @@
                     android:id="@+id/grabber_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:src="@drawable/humidity_icon_blue" />
 
                 <TextView

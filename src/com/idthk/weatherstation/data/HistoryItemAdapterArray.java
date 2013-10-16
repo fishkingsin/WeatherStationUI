@@ -49,13 +49,13 @@ public class HistoryItemAdapterArray extends ArrayAdapter<HistoryData> {
 		TextView degree_unit_tv2 = (TextView) rowView.findViewById(R.id.degree_unit_tv2);
 		TextView hi_degree_tv = (TextView) rowView.findViewById(R.id.hi_degree_tv);
 		HistoryData data = values.get(position);
-		if(weekday_tv!=null)weekday_tv.setText(String.valueOf(data.date.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT,
+		if(weekday_tv!=null)weekday_tv.setText(String.valueOf(data.getDate().getDisplayName(Calendar.DAY_OF_WEEK, Calendar.SHORT,
 				Locale.getDefault())));
-		if(month_tv!=null)month_tv.setText(String.valueOf(data.date.getDisplayName(Calendar.MONTH, Calendar.SHORT,
+		if(month_tv!=null)month_tv.setText(String.valueOf(data.getDate().getDisplayName(Calendar.MONTH, Calendar.SHORT,
 				Locale.getDefault())));
-		if(day_tv!=null)day_tv.setText(String.valueOf(data.date.get(Calendar.DAY_OF_MONTH)));
-		if(low_degree_tv!=null)low_degree_tv.setText(String.valueOf(data.lowDegree));
-		if(hi_degree_tv!=null)hi_degree_tv.setText(String.valueOf(data.hiDegree));
+		if(day_tv!=null)day_tv.setText(String.valueOf(data.getDate().get(Calendar.DAY_OF_MONTH)));
+		if(low_degree_tv!=null)low_degree_tv.setText(String.valueOf(data.getLowDegree()));
+		if(hi_degree_tv!=null)hi_degree_tv.setText(String.valueOf(data.getHiDegree()));
 		if(degree_unit_tv1!=null)degree_unit_tv1.setText(context.getString(R.string.fahrenheit_degree));
 		if(degree_unit_tv2!=null)degree_unit_tv2.setText(context.getString(R.string.fahrenheit_degree));
 		return rowView;

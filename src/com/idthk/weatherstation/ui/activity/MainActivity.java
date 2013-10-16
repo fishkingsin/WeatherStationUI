@@ -1,6 +1,9 @@
 package com.idthk.weatherstation.ui.activity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+
+import com.idthk.weatherstation.data.HistoryData;
 import com.idthk.weatherstation.data.MainAdapterArray;
 import com.idthk.weatherstation.data.StationData;
 import com.idthk.weatherstation.ui.R;
@@ -21,6 +24,70 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnNavigationListener {
+	/**
+	 * test only
+	 */
+	private static HistoryData[] items = { 
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(),
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			new HistoryData(), new HistoryData(), new HistoryData(), 
+			};
+	/**
+	 * test only
+	 */
 	public class MainStationData extends StationData {
 
 		public MainStationData(String _name) {
@@ -83,6 +150,8 @@ public class MainActivity extends Activity implements OnNavigationListener {
 
 					Intent intent = new Intent(MainActivity.this,
 							HistoryActivity.class);
+					ArrayList<HistoryData> list = new ArrayList<HistoryData>(Arrays.asList(items));
+					intent.putParcelableArrayListExtra(HistoryActivity.KEY_HISTORY,list );
 					Bundle extras = new Bundle();
 					extras.putParcelable("StationData", data);
 

@@ -1,5 +1,8 @@
 package com.idthk.weatherstation.ui.activity;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,6 +19,7 @@ import android.widget.TabHost;
 import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TabHost.TabSpec;
 
+import com.idthk.weatherstation.data.HistoryData;
 import com.idthk.weatherstation.data.StationData;
 import com.idthk.weatherstation.ui.HumidityHistoryFragment;
 import com.idthk.weatherstation.ui.PressureHistoryFragment;
@@ -25,10 +29,15 @@ import com.idthk.weatherstation.ui.Utilities;
 
 public class HistoryActivity extends FragmentActivity implements
 		OnTabChangeListener {
+	
+	ArrayList<HistoryData> list;
+	
 	private TabHost mTabHost;
 	String TAG = HistoryActivity.this.getClass().getSimpleName();
 	private String currentTab;
 	private String TAB="HistoryActivity";
+	public static String KEY_HISTORY="history";
+	
 	public enum Category {
 
 		TEMPERATURE(0),
@@ -64,10 +73,10 @@ public class HistoryActivity extends FragmentActivity implements
 		actionBar.setDisplayHomeAsUpEnabled(true);
 		mTabHost = (TabHost) findViewById(android.R.id.tabhost);
 		mTabHost.setup();
-		
+		list = getIntent().getParcelableArrayListExtra(HistoryActivity.KEY_HISTORY);
 
-		View indicator = LayoutInflater.from(this).inflate(R.layout.tab,
-				(ViewGroup) findViewById(android.R.id.tabs), false);
+//		View indicator = LayoutInflater.from(this).inflate(R.layout.tab,
+//				(ViewGroup) findViewById(android.R.id.tabs), false);
 
 		mTabHost.addTab(newTab(getString(R.string.TEMPERATURE),
 				R.string.TEMPERATURE, R.id.fragment1,
@@ -126,6 +135,8 @@ public class HistoryActivity extends FragmentActivity implements
 			
 			Intent intent = new Intent(this, HistoryListActivity.class);
 			intent.putExtra("TAB", currentTab);
+
+			intent.putParcelableArrayListExtra(KEY_HISTORY,list );
 			
 			startActivityForResult(intent, 0);
 			overridePendingTransition(R.anim.slide_in_right,
@@ -151,6 +162,7 @@ public class HistoryActivity extends FragmentActivity implements
 //		Log.d(TAG, tabId);
 		currentTab = tabId;
 		FragmentManager fm = getSupportFragmentManager();
+		
 		switch (placeholder) {
 		case R.id.fragment1:
 			category = Category.TEMPERATURE;
@@ -160,7 +172,7 @@ public class HistoryActivity extends FragmentActivity implements
 						.replace(
 								placeholder,
 								TemperatureHistoryFragment
-										.newInstance(data),
+										.newInstance(data,list),
 								tabId).commit();
 
 			}
@@ -173,7 +185,7 @@ public class HistoryActivity extends FragmentActivity implements
 						.replace(
 								placeholder,
 								HumidityHistoryFragment
-										.newInstance(data), tabId)
+										.newInstance(data,list), tabId)
 						.commit();
 
 			}
@@ -186,7 +198,7 @@ public class HistoryActivity extends FragmentActivity implements
 						.replace(
 								placeholder,
 								PressureHistoryFragment
-										.newInstance(data),
+										.newInstance(data,list),
 								tabId).commit();
 
 			}
