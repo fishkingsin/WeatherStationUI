@@ -59,7 +59,7 @@ public class SettingsActivity extends Activity implements OnClickListener {
 			if (v.getId() == stationView[i]) {
 				Intent intent;
 				if (v.getId() == R.id.button_station) {
-					intent = new Intent(this, StationActivity.class);
+					intent = new Intent(this, StationListActivity.class);
 				} else {
 
 					intent = new Intent(this, UnitSettingActivity.class);

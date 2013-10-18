@@ -23,7 +23,7 @@ import com.idthk.weatherstation.ui.R;
 import com.mobeta.android.dslv.DragSortController;
 import com.mobeta.android.dslv.DragSortListView;
 
-public class StationActivity extends Activity implements OnClickListener {
+public class StationListActivity extends Activity implements OnClickListener {
 	private static String[] items = { "Main", "ipsum", "dolor", "sit", "amet",
 			"consectetuer", "adipiscing", "elit", "morbi", "vel", "ligula",
 			"vitae", "arcu", "aliquet", "mollis", "etiam", "vel", "erat",
@@ -90,14 +90,14 @@ public class StationActivity extends Activity implements OnClickListener {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 			          int position, long id) {
-				StationActivity.this.position = position;
+				StationListActivity.this.position = position;
 				// TODO Auto-generated method stub
 				String item = adapter.getItem(position);
 //				Toast.makeText(StationActivity.this,
 //						"Item in position " + position + " clicked "+item,
 //						Toast.LENGTH_SHORT).show();
 				
-				Intent intent = new Intent(StationActivity.this, RenameActivity.class);
+				Intent intent = new Intent(StationListActivity.this, RenameActivity.class);
 				
 				intent.putExtra(getString(R.string.station_name_extra), item);
 				startActivityForResult(intent, RenameActivity.REQUEST);

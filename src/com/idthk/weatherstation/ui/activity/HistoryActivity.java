@@ -19,6 +19,7 @@ import android.widget.TabHost;
 import android.widget.TabHost.OnTabChangeListener;
 import android.widget.TabHost.TabSpec;
 
+import com.idthk.weatherstation.data.Category;
 import com.idthk.weatherstation.data.HistoryData;
 import com.idthk.weatherstation.data.StationData;
 import com.idthk.weatherstation.ui.HumidityHistoryFragment;
@@ -38,25 +39,7 @@ public class HistoryActivity extends FragmentActivity implements
 	private String TAB="HistoryActivity";
 	public static String KEY_HISTORY="history";
 	
-	public enum Category {
-
-		TEMPERATURE(0),
-
-		HUMIDITY(1),
-
-		PRESSURE(2);
-
-		private final Integer id;
-
-		Category(Integer id) {
-			this.id = id;
-		}
-
-		public Integer getValue() {
-			return id;
-		}
-
-	}
+	
 	Category category;
 	private StationData data;
 	@Override

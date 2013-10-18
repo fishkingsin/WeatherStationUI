@@ -2,8 +2,6 @@ package com.idthk.weatherstation.data;
 
 import java.util.Calendar;
 
-import com.idthk.weatherstation.ui.activity.HistoryActivity.Category;
-
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -105,12 +103,12 @@ public class HistoryData implements Parcelable {
 		setHiDegree((int) (Math.random() * 30));
 		setLowDegree((int) (Math.random() * 10));
 		
-		this.setHumidity((int) (Math.random() * 30));
-		this.setLowHumidity((int) (Math.random() * 30));
-		this.setHiHumidity((int) (Math.random() * 30));
-		this.setAtmospheric((int) (Math.random() * 30));
-		this.setLowAtmospheric((int) (Math.random() * 30));
-		this.setHiAtmospheric( (int) (Math.random() * 30));
+		this.setHumidity((int) (Math.random() * 100));
+		this.setLowHumidity((int) (Math.random() * 100));
+		this.setHiHumidity((int) (Math.random() * 100));
+		this.setAtmospheric((int) (Math.random() * 3000));
+		this.setLowAtmospheric((int) (Math.random() * 3000));
+		this.setHiAtmospheric( (int) (Math.random() * 3000));
 	}
 
 	public HistoryData(Parcel in) {

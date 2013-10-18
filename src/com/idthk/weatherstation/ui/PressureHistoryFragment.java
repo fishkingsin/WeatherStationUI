@@ -4,11 +4,11 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import com.idthk.weatherstation.data.Category;
 import com.idthk.weatherstation.data.HistoryData;
 import com.idthk.weatherstation.data.StationData;
 import com.idthk.weatherstation.ui.R;
 import com.idthk.weatherstation.ui.activity.HistoryActivity;
-import com.idthk.weatherstation.ui.activity.HistoryActivity.Category;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -3,6 +3,7 @@ package com.idthk.weatherstation.ui.activity;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.idthk.weatherstation.api.WeatherStationBaseActivity;
 import com.idthk.weatherstation.data.HistoryData;
 import com.idthk.weatherstation.data.MainAdapterArray;
 import com.idthk.weatherstation.data.StationData;
@@ -23,7 +24,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity implements OnNavigationListener {
+public class MainActivity extends WeatherStationBaseActivity implements OnNavigationListener {
 	/**
 	 * test only
 	 */

@@ -12,10 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.idthk.weatherstation.data.Category;
 import com.idthk.weatherstation.data.HistoryData;
 import com.idthk.weatherstation.data.StationData;
 import com.idthk.weatherstation.ui.activity.HistoryActivity;
-import com.idthk.weatherstation.ui.activity.HistoryActivity.Category;
 
 public class HumidityHistoryFragment extends MyFragmentFunction {
 	public static final String EXTRA_MESSAGE = "EXTRA_MESSAGE";

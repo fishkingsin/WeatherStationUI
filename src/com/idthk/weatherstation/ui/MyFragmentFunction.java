@@ -3,8 +3,8 @@ package com.idthk.weatherstation.ui;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.idthk.weatherstation.data.Category;
 import com.idthk.weatherstation.data.HistoryData;
-import com.idthk.weatherstation.ui.activity.HistoryActivity.Category;
 import com.jjoe64.graphview.GraphView.GraphViewData;
 import com.jjoe64.graphview.GraphViewSeries;
 import com.jjoe64.graphview.GraphViewSeries.GraphViewSeriesStyle;
